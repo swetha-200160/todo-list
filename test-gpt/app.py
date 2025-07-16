@@ -44,7 +44,7 @@ def index():
     cur.execute("SELECT * FROM todolist")
     tasks = cur.fetchall()
     conn.close()
-    return render_template("index.html", tasks=tasks)
+    return render_template("swetha", tasks=tasks)
 
 @app.route("/add", methods=["POST"])
 def add_task():
