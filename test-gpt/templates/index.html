@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do List</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            padding: 8px;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <h2>To-Do List</h2>
+
+    <form action="/add" method="POST">
+        <input type="text" name="task" placeholder="Enter a new task" required>
+        <button type="submit">Add</button>
+    </form>
+
+      <br>
+     <!-- <form action="/delete" method="POST">
+        <input type="text" name="task" placeholder="Delete a task" required>
+        <button type="submit">delete</button> 
+    </form>   -->
+    <br><br>
+    <table>
+        <tr>
+             <th>ID</th> 
+             <th>Task</th>
+            <th>Action</th>
+        </tr> 
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task[0] }}</td>
+            <td>{{ task[1] }}</td>
+             <td><a href="/delete/{{ task[0] }}" >Delete</a></td> 
+             <!-- <td>
+                <form action="/delete" method="POST">
+                <input type="hidden" name="task" value="{{ task[0] }}">
+                <button type="submit">Delete</button> 
+                </form> 
+            </td> -->
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
